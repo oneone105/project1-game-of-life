@@ -1,0 +1,217 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="game.css" />
+</head>
+
+<body>
+    <div>
+        <div class="header">
+            <h1>GAME OF LIFE</h1>
+            <span>by Samuel Hui</span>
+        </div>
+        <div id='canvas'></div>
+        <div class="display-flex space-between">
+            <div class="flex2 round-div" id="rules">
+                <!--Neighbor-->
+                <h3>NEIGHBOR</h3>
+                <div class="survival-bar">
+                    <span class="title">Rule of Survival</span>
+                    <span class="position-relative">MIN</span>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio0" autocomplete="off">
+                        <label class="btn btn-outline-primary survivalNum" for="btnradio0">0</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                        <label class="btn btn-outline-primary survivalNum" for="btnradio1">1</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary survivalNum" for="btnradio2">2</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                        <label class="btn btn-outline-primary survivalNum disabled" for="btnradio3">3</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                        <label class="btn btn-outline-primary survivalNum disabled" for="btnradio4">4</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
+                        <label class="btn btn-outline-primary survivalNum disabled" for="btnradio5">5</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
+                        <label class="btn btn-outline-primary survivalNum disabled" for="btnradio6">6</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off">
+                        <label class="btn btn-outline-primary survivalNum disabled" for="btnradio7">7</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio8" autocomplete="off">
+                        <label class="btn btn-outline-primary survivalNum disabled" for="btnradio8">8</label>
+                    </div>
+
+
+                    <span class="position-relative">MAX</span>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradioover" id="btnradio9" autocomplete="off">
+                        <label class="btn btn-outline-primary overNum disabled" for="btnradio9">0</label>
+
+                        <input type="radio" class="btn-check" name="btnradioover" id="btnradio10" autocomplete="off">
+                        <label class="btn btn-outline-primary overNum disabled" for="btnradio10">1</label>
+
+                        <input type="radio" class="btn-check" name="btnradioover" id="btnradio11" autocomplete="off">
+                        <label class="btn btn-outline-primary overNum disabled" for="btnradio11">2</label>
+
+                        <input type="radio" class="btn-check" name="btnradioover" id="btnradio12" autocomplete="off"
+                            checked>
+                        <label class="btn btn-outline-primary overNum" for="btnradio12">3</label>
+
+                        <input type="radio" class="btn-check" name="btnradioover" id="btnradio13" autocomplete="off">
+                        <label class="btn btn-outline-primary overNum" for="btnradio13">4</label>
+
+                        <input type="radio" class="btn-check" name="btnradioover" id="btnradio14" autocomplete="off">
+                        <label class="btn btn-outline-primary overNum" for="btnradio14">5</label>
+
+                        <input type="radio" class="btn-check" name="btnradioover" id="btnradio15" autocomplete="off">
+                        <label class="btn btn-outline-primary overNum" for="btnradio15">6</label>
+
+                        <input type="radio" class="btn-check" name="btnradioover" id="btnradio16" autocomplete="off">
+                        <label class="btn btn-outline-primary overNum" for="btnradio16">7</label>
+
+                        <input type="radio" class="btn-check" name="btnradioover" id="btnradio17" autocomplete="off">
+                        <label class="btn btn-outline-primary overNum" for="btnradio17">8</label>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="reproduction-bar">
+                    <span class="title">Rule of Reproduction</span>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradiorepo" id="btnradio18" autocomplete="off">
+                        <label class="btn btn-outline-primary repoNum" for="btnradio18">0</label>
+
+                        <input type="radio" class="btn-check" name="btnradiorepo" id="btnradio19" autocomplete="off">
+                        <label class="btn btn-outline-primary repoNum" for="btnradio19">1</label>
+
+                        <input type="radio" class="btn-check" name="btnradiorepo" id="btnradio20" autocomplete="off">
+                        <label class="btn btn-outline-primary repoNum" for="btnradio20">2</label>
+
+                        <input type="radio" class="btn-check" name="btnradiorepo" id="btnradio21" autocomplete="off"
+                            checked>
+                        <label class="btn btn-outline-primary repoNum" for="btnradio21">3</label>
+
+                        <input type="radio" class="btn-check" name="btnradiorepo" id="btnradio21" 2autocomplete="off">
+                        <label class="btn btn-outline-primary repoNum" for="btnradio22">4</label>
+
+                        <input type="radio" class="btn-check" name="btnradiorepo" id="btnradio23" autocomplete="off">
+                        <label class="btn btn-outline-primary repoNum" for="btnradio23">5</label>
+
+                        <input type="radio" class="btn-check" name="btnradiorepo" id="btnradio24" autocomplete="off">
+                        <label class="btn btn-outline-primary repoNum" for="btnradio24">6</label>
+
+                        <input type="radio" class="btn-check" name="btnradiorepo" id="btnradio25" autocomplete="off">
+                        <label class="btn btn-outline-primary repoNum" for="btnradio25">7</label>
+
+                        <input type="radio" class="btn-check" name="btnradiorepo" id="btnradio26" autocomplete="off">
+                        <label class="btn btn-outline-primary repoNum" for="btnradio26">8</label>
+                    </div>
+                </div>
+            </div>
+            <div class="flex3 round-div" id="ui-style">
+                <!--Style-->
+                <h3>STYLE</h3>
+                <div class="space-between">
+                    <!--Stable Box Color-->
+                    <span class="title">Stable Box Color</span>
+                    <div>
+                        <button type="button" id="random-color" class="btn btn-primary">RANDOM</button>
+                        <button type="button" id="darken-color" class="btn btn-primary">DARKEN</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="space-between">
+                    <!--Color Mode-->
+                    <span class="title">Color Mode</span>
+                    <div class="column-center">
+                        <span class="marginright">SINGLE</span>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="multi-color">
+                            <label class="form-check-label" for="multi-color"></label>
+                        </div>
+                        <span class="marginleft">MULTI</span>
+                        <button type="button" id="random-init" class="btn btn-primary">RAND INIT</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="display-flex">
+                    <div class="display-flex flex1 column">
+                        <span class="title">Insert Pattern</span>
+                        <div class="form-check form-switch form-check-reverse">
+                            <input class="form-check-input big" type="checkbox" id="keep-insert">
+                            <label class="form-check-label" for="keep-insert">&nbsp; <span id="font-smaller">Keep
+                                    Inserting</span></label>
+                        </div>
+                    </div>
+                    <div class="flex3 column pattern">
+                        <span>Small size</span><br>
+                        <button type="button" class="btn btn-primary" value="block">Block</button>
+                        <button type="button" class="btn btn-primary" value="loaf">Loaf</button>
+                        <button type="button" class="btn btn-primary" value="blinker">Blinker</button>
+                        <button type="button" class="btn btn-primary" value="toad">Toad</button>
+                        <button type="button" id="insert-glider" class="btn btn-primary" value="glider">Glider</button>
+                        <button type="button" class="btn btn-primary" value="lwss">L.W.S.S</button><br>
+                        <span>Medium size</span><span id="large-size-span">Large size</span><br>
+                        <button type="button" class="btn btn-primary" value="gun">Gun</button>
+                        <button type="button" id="insert-emoji" class="btn btn-primary" value="emoji">&#128526;</button>
+                        <button type="button" id="insert-sword" class="btn btn-primary" value="sword">Sword</button>
+                        <button type="button" class="btn btn-primary" value="hassler">Hassler</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex2 round-div" id="game-control">
+                <h3>CONTROL</h3>
+                <button type="button" id="game-start" class="btn btn-primary">Start Game &nbsp;<i
+                        class="fa-solid fa-play"></i></button>
+                <button type="button" id="game-pause" class="btn btn-primary icon"><i
+                        class="fa-solid fa-pause"></i></button>
+                <button type="button" id="reset-game" class="btn btn-primary icon"><i
+                        class="fa-solid fa-rotate-left"></i></button>
+                <button type="button" id="keep-random" class="btn btn-danger">Special - DISCO</button>
+                <hr>
+                <div class="display-flex">
+                    <div class="flex1">
+                        <span class="title">Speed</span>
+                        <div class="set1">
+                            <label for="customRange3" class="form-label">Frame Rate is <span id="frames"></span></label>
+                            <input type="range" class="form-range" min="1" max="30" step="1" value="10"
+                                id="customRange3">
+                        </div>
+                    </div>
+                    <div class="flex2 display-flex bottom">
+                        <span id="frame-counter">0</span>
+                    </div>
+                </div>
+                <span class="title">Grid Size</span>
+                <div class="display-flex space-between">
+                    <span>Tiny</span>
+                    <span>Small</span>
+                    <span>Medium</span>
+                    <span>Large</span>
+                    <span>Extra</span>
+                </div>
+                <input type="range" class="form-range" min="10" max="50" step="5" value="20" id="grid-range">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+    <script src="pattern.js"></script>
+    <script src="game.js"></script>
+</body>
+
+</html>
